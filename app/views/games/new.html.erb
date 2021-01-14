@@ -1,0 +1,15 @@
+<h1>New game </h1>
+<br>
+<div class='grid'>
+  <% @letters.each do |letter| %>
+    <span class='border bg-primary bg-gradient shadow'><%= letter %></span>
+  <% end %>
+</div>
+<br>
+<p>What is the longest word you can find?</p>
+<form action="/score" method="post">
+  <input type="text" name="playerinput" type>
+  <input class="btn btn-primary" type="submit" value="Play">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag  'letters', @letters %>
+</form>
